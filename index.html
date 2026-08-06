@@ -87,6 +87,7 @@
             font-weight: 800;
             color: var(--dark-charcoal);
             letter-spacing: -0.5px;
+            display: block;
         }
 
         .brand-subtitle {
@@ -95,6 +96,7 @@
             color: var(--primary-burgundy);
             letter-spacing: 1px;
             text-transform: uppercase;
+            display: block;
         }
 
         nav ul {
@@ -137,7 +139,7 @@
             color: var(--white);
         }
 
-        /* Hero Section con Imagen Operativa de Fondo */
+        /* Hero Section */
         .hero {
             position: relative;
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.85) 50%, rgba(69, 10, 10, 0.88) 100%),
@@ -217,7 +219,7 @@
             transform: translateY(-2px);
         }
 
-        /* Franja de Métricas de Impacto */
+        /* Trust Bar */
         .trust-bar {
             background: var(--white);
             padding: 2.5rem 2rem;
@@ -388,7 +390,7 @@
             display: block;
         }
 
-        /* Quality & Certification Matrix */
+        /* Quality & Certifications */
         .certifications {
             background: var(--dark-charcoal);
             color: var(--white);
@@ -494,7 +496,7 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-brand">
-                <img src="logo.png?v=2" alt="GPLOG Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                <img src="imagenes/logo.png" alt="GPLOG Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
                 <div id="logo-fallback" class="logo-svg-icon" style="display: none;">❄️</div>
                 <div class="brand-text">
                     <span class="brand-title">GIRONTE PHARMA</span>
@@ -513,7 +515,7 @@
         </div>
     </header>
 
-    <!-- Hero Section con Fondo Operativo -->
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Excelencia Operativa & Cumplimiento GMP</span>
@@ -526,7 +528,7 @@
         </div>
     </section>
 
-    <!-- Franja de Métricas de Impacto -->
+    <!-- Franja de Métricas -->
     <section class="trust-bar fade-in">
         <div class="trust-grid">
             <div class="trust-item">
@@ -557,19 +559,19 @@
             
             <!-- Bioprofarma Bagó -->
             <div class="client-card">
-                <img src="https://www.bioprofarma.com/wp-content/uploads/2021/04/logo-bioprofarma-bago.png" alt="Bioprofarma Bagó">
+                <img src="imagenes/bioprofarma-bago.png" alt="Bioprofarma Bagó" onerror="this.style.display='none';">
                 <span>Bioprofarma Bagó</span>
             </div>
 
             <!-- Montpellier -->
             <div class="client-card">
-                <img src="https://www.montpellier.com.ar/wp-content/themes/montpellier/images/logo.png" alt="Laboratorios Montpellier">
-                <span>Montpellier</span>
+                <img src="imagenes/montpellier.png" alt="Laboratorios Montpellier" onerror="this.style.display='none';">
+                <span>Laboratorios Montpellier</span>
             </div>
 
             <!-- Bagó -->
             <div class="client-card">
-                <img src="https://www.bago.com.ar/wp-content/uploads/2020/09/logo-bago.png" alt="Laboratorios Bagó">
+                <img src="imagenes/bago.png" alt="Laboratorios Bagó" onerror="this.style.display='none';">
                 <span>Laboratorios Bagó</span>
             </div>
 
@@ -600,7 +602,7 @@
         </div>
     </section>
 
-    <!-- Quality & Certification Banner -->
+    <!-- Quality & Certifications -->
     <section id="calidad" class="certifications fade-in">
         <div class="cert-container">
             <div class="cert-text">
@@ -624,7 +626,7 @@
         </div>
     </section>
 
-    <!-- News / Novedades Section -->
+    <!-- News / Novedades -->
     <section id="novedades" class="section-padding fade-in">
         <div class="section-title">
             <h2>Últimas Novedades</h2>
@@ -648,7 +650,7 @@
         </div>
     </section>
 
-    <!-- Modal Form Interactivo -->
+    <!-- Modal Form -->
     <div class="modal-overlay" id="contactModal">
         <div class="modal-card">
             <button class="close-btn" onclick="closeModal()">&times;</button>
