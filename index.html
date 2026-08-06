@@ -248,6 +248,15 @@
             font-size: 0.95rem;
         }
 
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-burgundy);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
         /* Quality & Certification Matrix */
         .certifications {
             background: var(--dark-charcoal);
@@ -266,7 +275,7 @@
         }
 
         .cert-text {
-            max-width: 600px;
+            max-width: 550px;
         }
 
         .cert-text h2 {
@@ -277,15 +286,17 @@
 
         .cert-badge-group {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
+            flex-wrap: wrap;
         }
 
         .cert-badge {
             border: 1px solid #444;
             background: rgba(255,255,255,0.05);
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.2rem;
             border-radius: 8px;
             text-align: center;
+            min-width: 140px;
         }
 
         .cert-badge span {
@@ -371,8 +382,8 @@
             <nav>
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#calidad">Calidad & OEA</a></li>
-                    <li><a href="#infraestructura">Infraestructura</a></li>
+                    <li><a href="#calidad">Calidad e IRAM</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
                 </ul>
             </nav>
             <a href="#contacto" class="btn-contact">Contactar</a>
@@ -420,18 +431,46 @@
     <section id="calidad" class="certifications">
         <div class="cert-container">
             <div class="cert-text">
-                <h2>Certificación OEA & Estándares Internacionales</h2>
-                <p>Gironte Pharma Logistics opera bajo lineamientos de Operador Económico Autorizado (OEA), asegurando la integridad, trazabilidad y máxima eficiencia aduanera en envíos críticos.</p>
+                <h2>Certificaciones IRAM & Operador OEA</h2>
+                <p>Gironte Pharma Logistics opera bajo auditorías continuas del Sistema de Gestión de Calidad certicado por <strong>IRAM - ISO 9001:2015</strong> y acreditación como <strong>Operador Económico Autorizado (OEA)</strong>, garantizando máxima seguridad en el transporte médico.</p>
             </div>
             <div class="cert-badge-group">
                 <div class="cert-badge">
+                    <span>IRAM</span>
+                    ISO 9001:2015
+                </div>
+                <div class="cert-badge">
                     <span>OEA</span>
-                    Certificación de Seguridad
+                    Seguridad Aduanera
                 </div>
                 <div class="cert-badge">
                     <span>GDP / GMP</span>
-                    Cumplimiento Normativo
+                    Normativa Farmacéutica
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News / Novedades Section -->
+    <section id="novedades" class="section-padding">
+        <div class="section-title">
+            <h2>Últimas Novedades</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <span class="news-date">Agosto 2026</span>
+                <h3>Auditoría de Calidad IRAM Directa</h3>
+                <p>Superamos exitosamente la auditoría periódica de mantenimiento de normas ISO, reafirmando nuestro compromiso con la excelencia y trazabilidad.</p>
+            </div>
+            <div class="card">
+                <span class="news-date">Julio 2026</span>
+                <h3>Ampliación de Flota de Frío</h3>
+                <p>Incorporamos nuevas unidades de transporte de última generación preparadas para traslados ultracongelados con monitoreo GPS instantáneo.</p>
+            </div>
+            <div class="card">
+                <span class="news-date">Junio 2026</span>
+                <h3>Actualización Matriz de Riesgos IT</h3>
+                <p>Reforzamos nuestros protocolos de ciberseguridad y directorios de autenticación para garantizar la continuidad operativa de nuestros clientes.</p>
             </div>
         </div>
     </section>
@@ -447,8 +486,8 @@
                 <h4>Navegación</h4>
                 <ul>
                     <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#calidad">Calidad & Certificaciones</a></li>
-                    <li><a href="#infraestructura">Red de Distribución</a></li>
+                    <li><a href="#calidad">Calidad & IRAM</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
                 </ul>
             </div>
             <div class="footer-col">
