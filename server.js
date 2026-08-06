@@ -8,8 +8,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Servir los archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+// Servir los archivos estáticos desde la raíz del proyecto (donde está index.html)
+app.use(express.static(__dirname));
+
+// Asegurar que al entrar a la raíz "/" entregue el index.html
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // Ruta de la API para recibir y procesar el formulario
 app.post('/api/contacto', async (req, res) => {
