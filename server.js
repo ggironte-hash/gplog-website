@@ -8,19 +8,19 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-// Servir los archivos estáticos desde la raíz del proyecto (donde está index.html)
+// Servir los archivos estáticos desde la raíz del proyecto
 app.use(express.static(__dirname));
 
-// Asegurar que al entrar a la raíz "/" entregue el index.html
+// Asegurar que al ingresar a la raíz "/" se entregue index.html
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Ruta de la API para recibir y procesar el formulario
+// Endpoint POST para procesar las solicitudes del formulario
 app.post('/api/contacto', async (req, res) => {
     const { nombre, email, empresa, servicio, mensaje } = req.body;
 
-    // Transporter SMTP con variables de entorno
+    // Configuración del servidor SMTP Nodemailer
     const transporter = nodemailer.createTransport({
         host: process.env.SMTP_HOST,
         port: parseInt(process.env.SMTP_PORT) || 465,
