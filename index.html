@@ -3,215 +3,746 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gironte Pharma Logistics | GPLOG - Logística Farmacéutica & Cadena de Frío</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Gironte Pharma Logistics (GPLOG) | Logística Farmacéutica & Cadena de Frío</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-burgundy: #8B1518;
+            --primary-red: #B22222;
+            --dark-charcoal: #141414;
+            --medium-charcoal: #222222;
+            --light-bg: #F9F9FB;
+            --white: #FFFFFF;
+            --text-dark: #2B2B2B;
+            --text-muted: #666666;
+            --border-color: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 52px;
+            width: auto;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark-charcoal);
+            letter-spacing: -0.5px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-burgundy);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-burgundy);
+        }
+
+        .btn-contact {
+            background: var(--primary-burgundy);
+            color: var(--white);
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-contact:hover {
+            background: #6e0f12;
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(20, 20, 20, 0.88), rgba(20, 20, 20, 0.92)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+            color: var(--white);
+            padding: 6rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-burgundy);
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            background: rgba(139, 21, 24, 0.3);
+            border: 1px solid var(--primary-burgundy);
+            color: #ff8a8d;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--dark-charcoal);
+        }
+
+        /* Features / Value Prop */
+        .section-padding {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-charcoal);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-burgundy);
+            border-radius: 2px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary-burgundy);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary-burgundy);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-charcoal);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-burgundy);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Quality & Certification Matrix */
+        .certifications {
+            background: var(--dark-charcoal);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .cert-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .cert-text {
+            max-width: 550px;
+        }
+
+        .cert-text h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cert-badge-group {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            border: 1px solid #444;
+            background: rgba(255,255,255,0.05);
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .cert-badge span {
+            display: block;
+            font-weight: 700;
+            color: #ff8a8d;
+            font-size: 1.1rem;
+        }
+
+        /* Modal Contact Form */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 2000;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-card {
+            background: var(--white);
+            width: 90%;
+            max-width: 520px;
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-top: 6px solid var(--primary-burgundy);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-card {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.5rem;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .modal-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-burgundy);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-burgundy);
+            color: var(--white);
+            padding: 0.8rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background: #6e0f12;
+        }
+
+        .btn-submit:disabled {
+            background: #a3a3a3;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            color: #2e7d32;
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .error-message {
+            display: none;
+            text-align: center;
+            color: #c62828;
+            background: #ffebee;
+            padding: 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d0d0d;
+            color: #999;
+            padding: 3rem 2rem 1.5rem;
+            border-top: 1px solid #222;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--primary-burgundy);
+            padding-left: 8px;
+        }
+
+        .footer-col p, .footer-col li {
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid #222;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 1rem; text-align: center; }
+            nav ul { flex-direction: column; gap: 0.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .cert-container { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">
-                <a href="#">GPLOG <span>Pharma Logistics</span></a>
-            </div>
-            <nav class="nav-menu">
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-brand">
+                <img src="logo.png" alt="Gironte Pharma Logistics Logo" class="logo-img">
+                <div class="brand-text">
+                    <span class="brand-title">GIRONTE PHARMA</span>
+                    <span class="brand-subtitle">LOGISTICS • GPLOG</span>
+                </div>
+            </a>
+            <nav>
                 <ul>
-                    <li><a href="#inicio" data-es="Inicio" data-en="Home">Inicio</a></li>
-                    <li><a href="#nosotros" data-es="Nosotros" data-en="About Us">Nosotros</a></li>
-                    <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
-                    <li><a href="#novedades" data-es="Novedades" data-en="News">Novedades</a></li>
-                    <li><a href="#contacto" data-es="Contacto" data-en="Contact">Contacto</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#calidad">Calidad e IRAM</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
                 </ul>
             </nav>
-            <div class="header-actions">
-                <button id="lang-toggle" class="btn-lang">EN</button>
-                <a href="#contacto" class="btn-primary" data-es="Cotizar" data-en="Get Quote">Cotizar</a>
-            </div>
+            <button class="btn-contact" onclick="openModal('Contacto General')">Contactar</button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="inicio" class="hero">
-        <div class="container hero-content">
-            <span class="badge" data-es="Logística de Salud de Alta Precisión" data-en="High Precision Healthcare Logistics">Logística de Salud de Alta Precisión</span>
-            <h1 data-es="Excelencia y Seguridad en Logística Farmacéutica & Cadena de Frío" data-en="Excellence and Security in Pharmaceutical Logistics & Cold Chain">Excelencia y Seguridad en Logística Farmacéutica & Cadena de Frío</h1>
-            <p data-es="Soluciones integrales de almacenamiento, transporte y gestión de calidad bajo estrictos estándares normativos e internacionales para la industria de la salud." data-en="Comprehensive storage, transportation, and quality management solutions under strict national and international regulatory standards for the healthcare industry.">Soluciones integrales de almacenamiento, transporte y gestión de calidad bajo estrictos estándares normativos e internacionales para la industria de la salud.</p>
-            <div class="hero-buttons">
-                <a href="#contacto" class="btn-primary-large" data-es="Solicitar Cotización" data-en="Request a Quote">Solicitar Cotización</a>
-                <a href="#servicios" class="btn-secondary-large" data-es="Ver Servicios" data-en="Our Services">Ver Servicios</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Excelencia Operativa & Cumplimiento GMP</span>
+            <h1>Logística Farmacéutica de Alta Precisión</h1>
+            <p>Especialistas en la gestión integral de la cadena de frío, transporte de productos biológicos y almacenamiento certificado bajo normas internacionales.</p>
+            <div class="hero-btns">
+                <a href="#servicios" class="btn-contact">Nuestros Servicios</a>
+                <button class="btn-secondary" onclick="openModal('Solicitud de Cotización')">Solicitar Cotización</button>
             </div>
         </div>
     </section>
 
-    <!-- CERTIFICATIONS BAR -->
-    <section class="certifications">
-        <div class="container cert-grid">
-            <div class="cert-card">
-                <div class="cert-icon">🏆</div>
-                <div class="cert-text">
-                    <h3>IRAM-ISO 9001:2015</h3>
-                    <p data-es="Sistema de Gestión de la Calidad" data-en="Quality Management System">Sistema de Gestión de la Calidad</p>
-                </div>
+    <!-- Services Grid -->
+    <section id="servicios" class="section-padding">
+        <div class="section-title">
+            <h2>Soluciones Logísticas Especializadas</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">❄️</div>
+                <h3>Cadena de Frío Garantizada</h3>
+                <p>Control estricto de temperatura en rangos de 2°C a 8°C, 15°C a 25°C y ultracongelación. Monitoreo continuo con trazabilidad en tiempo real.</p>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">🛡️</div>
-                <div class="cert-text">
-                    <h3>Certificación OEA</h3>
-                    <p data-es="Operador Económico Autorizado" data-en="Authorized Economic Operator">Operador Económico Autorizado</p>
-                </div>
+            <div class="card">
+                <div class="card-icon">🏬</div>
+                <h3>Almacenamiento Certificado</h3>
+                <p>Depósitos acondicionados bajo estándares internacionales de Buenas Prácticas de Fabricación (GMP) y Almacenamiento (GDP).</p>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">📋</div>
-                <div class="cert-text">
-                    <h3>ANMAT / BPD y BPA</h3>
-                    <p data-es="Buenas Prácticas de Distribución" data-en="Good Distribution Practices">Buenas Prácticas de Distribución</p>
-                </div>
-            </div>
-            <div class="cert-card">
-                <div class="cert-icon">❄️</div>
-                <div class="cert-text">
-                    <h3>Control Térmico 24/7</h3>
-                    <p data-es="Rangos 2°-8°C / 15°-25°C" data-en="Ranges 2°-8°C / 15°-25°C">Rangos 2°-8°C / 15°-25°C</p>
-                </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Gestión de Riesgo e Identidad</h3>
+                <p>Matriz de riesgo integrada, auditorías de calidad sistemáticas y protocolos avanzados de seguridad de la información y acceso.</p>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT US SECTION -->
-    <section id="nosotros" class="about">
-        <div class="container about-container">
-            <div class="about-text">
-                <h2 data-es="Sobre Gironte Pharma Logistics" data-en="About Gironte Pharma Logistics">Sobre Gironte Pharma Logistics</h2>
-                <p data-es="En Gironte Pharma Logistics (GPLOG) nos especializamos en la gestión integral de la cadena de suministro para la industria farmacéutica y de la salud. Nuestro compromiso se fundamenta en la precisión, la trazabilidad punta a punta y el estricto cumplimiento normativo." data-en="At Gironte Pharma Logistics (GPLOG) we specialize in end-to-end supply chain management for the pharmaceutical and healthcare industry. Our commitment is built on precision, end-to-end traceability, and strict regulatory compliance.">En Gironte Pharma Logistics (GPLOG) nos especializamos en la gestión integral de la cadena de suministro para la industria farmacéutica y de la salud. Nuestro compromiso se fundamenta en la precisión, la trazabilidad punta a punta y el estricto cumplimiento normativo.</p>
-                <p data-es="Contamos con infraestructura calificada, tecnología de monitoreo térmico en tiempo real y el respaldo de nuestras certificaciones IRAM-ISO 9001:2015 y OEA, garantizando la integridad de cada producto." data-en="We have qualified infrastructure, real-time thermal monitoring technology, and the backing of our IRAM-ISO 9001:2015 and AEO certifications, guaranteeing product integrity at every stage.">Contamos con infraestructura calificada, tecnología de monitoreo térmico en tiempo real y el respaldo de nuestras certificaciones IRAM-ISO 9001:2015 y OEA, garantizando la integridad de cada producto.</p>
+    <!-- Quality & Certification Banner -->
+    <section id="calidad" class="certifications">
+        <div class="cert-container">
+            <div class="cert-text">
+                <h2>Certificaciones IRAM & Operador OEA</h2>
+                <p>Gironte Pharma Logistics opera bajo auditorías continuas del Sistema de Gestión de Calidad certicado por <strong>IRAM - ISO 9001:2015</strong> y acreditación como <strong>Operador Económico Autorizado (OEA)</strong>, garantizando máxima seguridad en el transporte médico.</p>
             </div>
-            <div class="about-stats">
-                <div class="stat-box">
-                    <h4>100%</h4>
-                    <p data-es="Trazabilidad Farmacéutica" data-en="Pharma Traceability">Trazabilidad Farmacéutica</p>
+            <div class="cert-badge-group">
+                <div class="cert-badge">
+                    <span>IRAM</span>
+                    ISO 9001:2015
                 </div>
-                <div class="stat-box">
-                    <h4>24/7</h4>
-                    <p data-es="Monitoreo Térmico Continuo" data-en="Continuous Thermal Monitoring">Monitoreo Térmico Continuo</p>
+                <div class="cert-badge">
+                    <span>OEA</span>
+                    Seguridad Aduanera
+                </div>
+                <div class="cert-badge">
+                    <span>GDP / GMP</span>
+                    Normativa Farmacéutica
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="servicios" class="services">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-es="Nuestros Servicios Core" data-en="Our Core Services">Nuestros Servicios Core</h2>
-                <p data-es="Soluciones a la medida de la industria de la salud y laboratorios internacionales." data-en="Tailored solutions for the healthcare industry and international laboratories.">Soluciones a la medida de la industria de la salud y laboratorios internacionales.</p>
+    <!-- News / Novedades Section -->
+    <section id="novedades" class="section-padding">
+        <div class="section-title">
+            <h2>Últimas Novedades</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <span class="news-date">Agosto 2026</span>
+                <h3>Auditoría de Calidad IRAM Directa</h3>
+                <p>Superamos exitosamente la auditoría periódica de mantenimiento de normas ISO, reafirmando nuestro compromiso con la excelencia y trazabilidad.</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📦</div>
-                    <h3 data-es="Almacenamiento Calificado" data-en="Qualified Storage">Almacenamiento Calificado</h3>
-                    <p data-es="Depósitos equipados con monitoreo térmico 24/7 (2°C-8°C y 15°C-25°C) y gestión de inventarios para productos Farma." data-en="Warehouses equipped with 24/7 thermal monitoring (2°C-8°C and 15°C-25°C) and specialized pharma inventory management.">Depósitos equipados con monitoreo térmico 24/7 (2°C-8°C y 15°C-25°C) y gestión de inventarios para productos Farma.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🚚</div>
-                    <h3 data-es="Transporte & Distribución" data-en="Transport & Distribution">Transporte & Distribución</h3>
-                    <p data-es="Flota adaptada con control de temperatura activo para distribución nacional e internacional de medicamentos." data-en="Fleet equipped with active temperature control for national and international distribution of pharmaceuticals.">Flota adaptada con control de temperatura activo para distribución nacional e internacional de medicamentos.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🛡️</div>
-                    <h3 data-es="Gestión de Calidad & Riesgos" data-en="Quality & Risk Management">Gestión de Calidad & Riesgos</h3>
-                    <p data-es="Protocolos de calidad bajo norma ISO 9001:2015, matrices de riesgo en la cadena de suministro y respaldo OEA." data-en="Quality protocols under ISO 9001:2015, supply chain risk matrices, and full AEO compliance backing.">Protocolos de calidad bajo norma ISO 9001:2015, matrices de riesgo en la cadena de suministro y respaldo OEA.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3 data-es="Comercio Exterior Farma" data-en="Pharma Foreign Trade">Comercio Exterior Farma</h3>
-                    <p data-es="Asesoramiento y soporte logístico B2B para la importación y exportación de insumos médicos y fármacos." data-en="B2B logistics support and advisory for importing and exporting medical supplies and pharmaceutical products.">Asesoramiento y soporte logístico B2B para la importación y exportación de insumos médicos y fármacos.</p>
-                </div>
+            <div class="card">
+                <span class="news-date">Julio 2026</span>
+                <h3>Ampliación de Flota de Frío</h3>
+                <p>Incorporamos nuevas unidades de transporte de última generación preparadas para traslados ultracongelados con monitoreo GPS instantáneo.</p>
+            </div>
+            <div class="card">
+                <span class="news-date">Junio 2026</span>
+                <h3>Actualización Matriz de Riesgos IT</h3>
+                <p>Reforzamos nuestros protocolos de ciberseguridad y directorios de autenticación para garantizar la continuidad operativa de nuestros clientes.</p>
             </div>
         </div>
     </section>
 
-    <!-- NEWS SECTION -->
-    <section id="novedades" class="news">
-        <div class="container">
-            <div class="section-header">
-                <h2 data-es="Novedades & Comunicados" data-en="News & Announcements">Novedades & Comunicados</h2>
-                <p data-es="Últimas actualizaciones operativas e institucionales de GPLOG." data-en="Latest operational and institutional updates from GPLOG.">Últimas actualizaciones operativas e institucionales de GPLOG.</p>
-            </div>
-            <div class="news-grid">
-                <article class="news-card">
-                    <span class="news-date">Agosto 2026</span>
-                    <h3>GPLOG obtiene la Certificación IRAM-ISO 9001:2015</h3>
-                    <p>Consolidamos nuestro compromiso con la excelencia operativa y la gestión de calidad en todos nuestros procesos de logística farmacéutica.</p>
-                </article>
-                <article class="news-card">
-                    <span class="news-date">Julio 2026</span>
-                    <h3>Optimización de Cadena de Frío e Infraestructura</h3>
-                    <p>Ampliamos la capacidad de monitoreo térmico en tiempo real para envíos de alta sensibilidad biológica.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contacto" class="contact">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <h2 data-es="Contáctenos" data-en="Contact Us">Contáctenos</h2>
-                <p data-es="Complete el formulario y nuestro equipo comercial le responderá a la brevedad." data-en="Fill out the form and our commercial team will reply promptly.">Complete el formulario y nuestro equipo comercial le responderá a la brevedad.</p>
-                
-                <div class="contact-details">
-                    <p><strong>🌐 Web:</strong> gplog.com.ar</p>
-                    <p><strong>✉️ Email:</strong> info@gplog.com.ar</p>
-                    <p><strong>📍 Ubicación:</strong> Buenos Aires, Argentina</p>
-                    <p><strong>📱 Instagram:</strong> @gironte_pharma_logistics</p>
-                </div>
-            </div>
-
-            <form id="contact-form" class="contact-form" action="https://formspree.io/f/sample" method="POST">
+    <!-- Modal Form Interactivo -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+            <h3 id="modalTitle">Solicitar Cotización</h3>
+            <p>Completá el formulario y nuestro equipo se pondrá en contacto a la brevedad.</p>
+            
+            <form id="contactForm" onsubmit="handleSubmit(event)">
                 <div class="form-group">
-                    <label for="name" data-es="Nombre Completo" data-en="Full Name">Nombre Completo</label>
-                    <input type="text" id="name" name="name" required placeholder="Ej. Juan Pérez">
+                    <label for="nombre">Nombre y Apellido</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
                 </div>
                 <div class="form-group">
-                    <label for="company" data-es="Empresa / Laboratorio" data-en="Company / Lab">Empresa / Laboratorio</label>
-                    <input type="text" id="company" name="company" required placeholder="Ej. Laboratorio XYZ">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" required placeholder="nombre@empresa.com">
                 </div>
                 <div class="form-group">
-                    <label for="email" data-es="Correo Electrónico" data-en="Email Address">Correo Electrónico</label>
-                    <input type="email" id="email" name="email" required placeholder="info@empresa.com">
+                    <label for="empresa">Empresa / Laboratorio</label>
+                    <input type="text" id="empresa" placeholder="Nombre de la institución">
                 </div>
                 <div class="form-group">
-                    <label for="service" data-es="Servicio Requerido" data-en="Required Service">Servicio Requerido</label>
-                    <select id="service" name="service">
-                        <option value="almacenamiento">Almacenamiento Calificado</option>
-                        <option value="transporte">Transporte & Distribución</option>
-                        <option value="comex">Comercio Exterior</option>
-                        <option value="calidad">Auditoría / Calidad</option>
+                    <label for="servicio">Servicio de Interés</label>
+                    <select id="servicio">
+                        <option value="Cadena de Frío / Transporte">Cadena de Frío / Transporte</option>
+                        <option value="Almacenamiento GDP/GMP">Almacenamiento GDP/GMP</option>
+                        <option value="Consultoría e Inspección de Calidad">Consultoría e Inspección de Calidad</option>
+                        <option value="Otro">Otro</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="message" data-es="Mensaje" data-en="Message">Mensaje</label>
-                    <textarea id="message" name="message" rows="4" required placeholder="Describa su consulta..."></textarea>
+                    <label for="mensaje">Mensaje o Detalle del Requerimiento</label>
+                    <textarea id="mensaje" rows="3" placeholder="Escriba sus dudas o volúmenes aproximados..."></textarea>
                 </div>
-                <button type="submit" class="btn-primary-block" data-es="Enviar Consulta" data-en="Send Inquiry">Enviar Consulta</button>
+                <button type="submit" id="btnSubmit" class="btn-submit">Enviar Consulta</button>
             </form>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Gironte Pharma Logistics (GPLOG). Todos los derechos reservados.</p>
-            <div class="footer-links">
-                <a href="#inicio">Inicio</a> | <a href="#contacto">Contacto</a>
+            <div class="success-message" id="successMsg">
+                ✓ ¡Mensaje enviado con éxito! Nos comunicaremos a la brevedad.
             </div>
+            <div class="error-message" id="errorMsg">
+                ✕ Error al enviar el correo. Por favor, reintentá en unos minutos.
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Gironte Pharma Logistics</h4>
+                <p>Líderes en transporte, distribución y almacenamiento de insumos médicos y farmacéuticos.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#calidad">Calidad & IRAM</a></li>
+                    <li><a href="#novedades">Novedades</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto Comercial</h4>
+                <p>Email: contacto@gplog.com.ar</p>
+                <p>Buenos Aires, Argentina</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gironte Pharma Logistics (GPLOG). Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        function openModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('contactModal').classList.add('active');
+            document.getElementById('successMsg').style.display = 'none';
+            document.getElementById('errorMsg').style.display = 'none';
+            document.getElementById('contactForm').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+        }
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('btnSubmit');
+            btn.disabled = true;
+            btn.innerText = 'Enviando...';
+            document.getElementById('errorMsg').style.display = 'none';
+
+            const payload = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                empresa: document.getElementById('empresa').value,
+                servicio: document.getElementById('servicio').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            try {
+                const response = await fetch('/api/contacto', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('successMsg').style.display = 'block';
+                    setTimeout(() => {
+                        closeModal();
+                        document.getElementById('contactForm').reset();
+                        btn.disabled = false;
+                        btn.innerText = 'Enviar Consulta';
+                    }, 2500);
+                } else {
+                    throw new Error('Falló el servidor');
+                }
+            } catch (err) {
+                document.getElementById('errorMsg').style.display = 'block';
+                btn.disabled = false;
+                btn.innerText = 'Enviar Consulta';
+            }
+        }
+    </script>
 </body>
 </html>
