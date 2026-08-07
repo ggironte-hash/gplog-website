@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gironte Pharma Logistics</title>
+    <title>Gironte Pharma Logistics | GPLOG</title>
+    <!-- Tipografía Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -23,11 +24,88 @@
         }
 
         body {
-            background-color: var(--light-bg);
+            background-color: #ffffff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navegación */
+        header {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
             color: var(--dark);
         }
 
-        /* Modal Overlay genérico */
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-hero {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.9rem 2.2rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-hero:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Modal Overlay Genérico */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -148,7 +226,7 @@
             cursor: not-allowed;
         }
 
-        /* Estilos del Modal de Éxito */
+        /* Modal de Confirmación Centrado */
         .success-icon {
             width: 64px;
             height: 64px;
@@ -178,32 +256,24 @@
         .success-btn:hover {
             background: #15803d;
         }
-
-        /* Demo Header / Botón */
-        .demo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .btn-open {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
     </style>
 </head>
 <body>
 
-    <div class="demo-container">
-        <button class="btn-open" onclick="openModal('Contacto Comercial')">Contactar a Gironte Pharma</button>
-    </div>
+    <!-- Navegación -->
+    <header>
+        <a href="#" class="logo">GIRONTE <span>PHARMA LOGISTICS</span></a>
+        <nav>
+            <a href="#" onclick="openModal('Contacto Comercial')">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Sección Principal -->
+    <section class="hero">
+        <h1>Logística Integral Pharma</h1>
+        <p>Soluciones especializadas en almacenamiento, distribución e infraestructura bajo normas de calidad ISO 9001 y OEA.</p>
+        <button class="btn-hero" onclick="openModal('Consulta Web')">Contactar a Gironte Pharma</button>
+    </section>
 
     <!-- Modal Formulario de Contacto -->
     <div class="modal-overlay" id="contactModal">
@@ -245,13 +315,13 @@
         </div>
     </div>
 
-    <!-- Modal de Confirmación / Éxito Centrado -->
+    <!-- Modal de Confirmación de Envío (Centrado) -->
     <div class="modal-overlay" id="successModal">
-        <div class="modal-card" style="text-align: center; padding: 2.5rem 2rem;">
+        <div class="modal-card" style="text-align: center; padding: 2.5rem 2rem; max-width: 480px;">
             <div class="success-icon">✓</div>
             <h3 style="font-size: 1.5rem; color: #0f172a; margin-bottom: 0.5rem; font-weight: 800;">¡Mensaje Enviado!</h3>
             <p style="color: #64748b; font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.8rem;">
-                Muchas gracias por contactarte. Hemos recibido tu mensaje correctamente y nuestro equipo técnico se comunicará a la brevedad.
+                Muchas gracias por contactarte. Hemos recibido tu mensaje correctamente y nuestro equipo se comunicará a la brevedad.
             </p>
             <button onclick="closeSuccessModal()" class="success-btn">
                 Entendido
@@ -305,7 +375,7 @@
                 if (response.ok) {
                     closeModal(); // Cierra el modal de formulario
                     document.getElementById('contactForm').reset(); // Limpia los campos
-                    setTimeout(showSuccessModal, 300); // Muestra la confirmación centrada
+                    setTimeout(showSuccessModal, 300); // Muestra la alerta de éxito centrada
                 } else {
                     alert('Hubo un problema al enviar el formulario. Por favor, intentá nuevamente.');
                 }
