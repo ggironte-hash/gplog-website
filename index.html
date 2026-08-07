@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gironte Pharma Logistics (GPLOG) | Logística Farmacéutica & Cadena de Frío</title>
+    <title>Gironte Pharma Logistics | Logística Farmacéutica & Cadena de Frío</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -87,16 +87,7 @@
             font-weight: 800;
             color: var(--dark-charcoal);
             letter-spacing: -0.5px;
-            display: block;
-        }
-
-        .brand-subtitle {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: var(--primary-burgundy);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            display: block;
+            white-space: nowrap;
         }
 
         nav ul {
@@ -515,6 +506,7 @@
             nav ul { flex-direction: column; gap: 0.8rem; }
             .hero h1 { font-size: 2.2rem; }
             .client-card { width: 100%; }
+            .brand-title { font-size: 1rem; white-space: normal; }
         }
     </style>
 </head>
@@ -524,12 +516,9 @@
     <header>
         <div class="nav-container">
             <a href="#" class="logo-brand">
-                <img src="Imagenes/logo.png" alt="GPLOG Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
+                <img src="Imagenes/logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
                 <div id="logo-fallback" class="logo-svg-icon" style="display: none;">❄️</div>
-                <div class="brand-text">
-                    <span class="brand-title">GIRONTE PHARMA</span>
-                    <span class="brand-subtitle">LOGISTICS • GPLOG</span>
-                </div>
+                <span class="brand-title">GIRONTE PHARMA LOGISTICS</span>
             </a>
             <nav>
                 <ul>
@@ -545,14 +534,12 @@
 
     <!-- Dynamic Hero Section -->
     <section class="hero">
-        <!-- Capas de fondo rotativas (Incluye fotos de depósitos, logística y aviación de carga) -->
         <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1920&q=80');"></div> <!-- Avión de carga volando -->
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1920&q=80');"></div>
         <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=1920&q=80');"></div> <!-- Avión de carga en pista / carga -->
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=1920&q=80');"></div>
         <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1920&q=80');"></div>
         
-        <!-- Superposición oscura -->
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
@@ -594,25 +581,18 @@
             <h2>Confían en Nuestra Operación</h2>
         </div>
         <div class="clients-grid">
-            
-            <!-- Bioprofarma Bagó -->
             <div class="client-card">
                 <img src="Imagenes/bioprofarma-bago.png" alt="Bioprofarma Bagó" onerror="this.style.display='none';">
                 <span>Bioprofarma Bagó</span>
             </div>
-
-            <!-- Montpellier -->
             <div class="client-card">
                 <img src="Imagenes/montpellier.png" alt="Laboratorios Montpellier" onerror="this.style.display='none';">
                 <span>Laboratorios Montpellier</span>
             </div>
-
-            <!-- Bagó -->
             <div class="client-card">
                 <img src="Imagenes/bago.png" alt="Laboratorios Bagó" onerror="this.style.display='none';">
                 <span>Laboratorios Bagó</span>
             </div>
-
         </div>
     </section>
 
@@ -759,16 +739,15 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Gironte Pharma Logistics (GPLOG). Todos los derechos reservados.</p>
+            <p>&copy; 2026 Gironte Pharma Logistics. Todos los derechos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Lógica para rotación de imágenes del Hero (Slider)
         document.addEventListener("DOMContentLoaded", function() {
             const bgSlides = document.querySelectorAll('.hero-bg');
             let currentSlide = 0;
-            const slideInterval = 5000; // Cambia cada 5 segundos (5000ms)
+            const slideInterval = 5000;
 
             function nextSlide() {
                 bgSlides[currentSlide].classList.remove('active');
@@ -778,7 +757,6 @@
 
             setInterval(nextSlide, slideInterval);
 
-            // Observador para animaciones al hacer scroll
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
