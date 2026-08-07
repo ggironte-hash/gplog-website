@@ -139,15 +139,43 @@
             color: var(--white);
         }
 
-        /* Hero Section */
+        /* Dynamic Hero Section */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.88) 0%, rgba(30, 41, 59, 0.55) 50%, rgba(69, 10, 10, 0.60) 100%),
-                        url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             color: var(--white);
             padding: 8rem 2rem 7rem;
             text-align: center;
             overflow: hidden;
+            background-color: var(--dark-charcoal);
+        }
+
+        /* Capas de imágenes rotativas */
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            z-index: 0;
+        }
+
+        .hero-bg.active {
+            opacity: 1;
+        }
+
+        /* Capa superpuesta oscura para dar contraste */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.60) 0%, rgba(30, 41, 59, 0.55) 50%, rgba(139, 21, 24, 0.60) 100%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -515,8 +543,16 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Dynamic Hero Section -->
     <section class="hero">
+        <!-- Capas de fondo rotativas -->
+        <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1920&q=80');"></div>
+        
+        <!-- Superposición oscura -->
+        <div class="hero-overlay"></div>
+
         <div class="hero-content">
             <span class="hero-badge">Excelencia Operativa & Cumplimiento GMP</span>
             <h1>Logística Farmacéutica de Alta Precisión</h1>
@@ -726,6 +762,32 @@
     </footer>
 
     <script>
+        // Lógica para rotación de imágenes del Hero (Slider)
+        document.addEventListener("DOMContentLoaded", function() {
+            const bgSlides = document.querySelectorAll('.hero-bg');
+            let currentSlide = 0;
+            const slideInterval = 5000; // Cambia cada 5 segundos (5000ms)
+
+            function nextSlide() {
+                bgSlides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % bgSlides.length;
+                bgSlides[currentSlide].classList.add('active');
+            }
+
+            setInterval(nextSlide, slideInterval);
+
+            // Observador para animaciones al hacer scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
         function openModal(title) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('contactModal').classList.add('active');
@@ -770,18 +832,6 @@
                 btn.innerText = 'Enviar Consulta';
             }
         }
-
-        document.addEventListener("DOMContentLoaded", function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        });
     </script>
 </body>
 </html>
