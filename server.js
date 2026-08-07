@@ -1,66 +1,59 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 
-app.use(express.json());
+// Middlewares
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Servir los archivos estáticos desde la raíz del proyecto
-app.use(express.static(__dirname));
-
-// Asegurar que al ingresar a la raíz "/" se entregue index.html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+// Configuración del servicio SMTP (SMTP2GO)
+const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'mail.smtp2go.com',
+    port: parseInt(process.env.SMTP_PORT) || 25,
+    secure: false, // true para puerto 465
+    auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS
+    }
 });
 
-// Endpoint POST para procesar las solicitudes del formulario
+// Endpoint del formulario de contacto
 app.post('/api/contacto', async (req, res) => {
     const { nombre, email, empresa, servicio, mensaje } = req.body;
 
-    // Configuración del servidor SMTP Nodemailer
-    const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT) || 465,
-        secure: (process.env.SMTP_PORT == '465' || !process.env.SMTP_PORT), 
-        auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS
-        }
-    });
+    const mailFrom = process.env.MAIL_FROM || process.env.SMTP_USER;
+    const mailTo = process.env.MAIL_TO;
 
     const mailOptions = {
-        from: `"Web GPLOG" <${process.env.SMTP_USER}>`,
-        to: process.env.MAIL_TO,
+        from: `"Contacto Web - Gironte Pharma" <${mailFrom}>`,
+        to: mailTo,
         replyTo: email,
-        subject: `Nueva Consulta Web: ${servicio}`,
+        subject: `Nuevo contacto web: ${nombre}`,
         html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; color: #333;">
-                <h2 style="color: #8B1518; border-bottom: 2px solid #8B1518; padding-bottom: 8px;">Nueva solicitud desde la página web</h2>
-                <p><strong>Nombre:</strong> ${nombre}</p>
-                <p><strong>Email de contacto:</strong> ${email}</p>
-                <p><strong>Empresa / Laboratorio:</strong> ${empresa || 'No especificada'}</p>
-                <p><strong>Servicio de interés:</strong> ${servicio}</p>
-                <p><strong>Mensaje:</strong></p>
-                <blockquote style="background: #f9f9f9; padding: 12px; border-left: 4px solid #8B1518; margin: 0;">
-                    ${mensaje || 'Sin mensaje adicional.'}
-                </blockquote>
-            </div>
+            <h3>Nuevo mensaje desde la página web</h3>
+            <p><strong>Nombre:</strong> ${nombre}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Empresa:</strong> ${empresa || 'No especificada'}</p>
+            <p><strong>Servicio:</strong> ${servicio || 'No especificado'}</p>
+            <p><strong>Mensaje:</strong></p>
+            <p>${mensaje}</p>
         `
     };
 
     try {
         await transporter.sendMail(mailOptions);
-        res.status(200).json({ success: true, message: 'Correo enviado correctamente.' });
+        res.status(200).json({ success: true, message: 'Correo enviado correctamente' });
     } catch (error) {
-        console.error('Error enviando e-mail por SMTP:', error);
-        res.status(500).json({ success: false, message: 'Error interno al procesar el envío.' });
+        console.error('Error enviando mail:', error);
+        res.status(500).json({ success: false, message: 'Error al enviar el correo' });
     }
 });
 
-const PORT = process.env.PORT || 3000;
+// Puerto de ejecución en Render
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
-    console.log(`Servidor GPLOG activo en el puerto ${PORT}`);
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
