@@ -3,815 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gironte Pharma Logistics | Logística Farmacéutica & Cadena de Frío</title>
+    <title>Comercio Exterior & Logística Internacional</title>
+    
+    <!-- Fuente moderna desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-burgundy: #8B1518;
-            --primary-red: #B22222;
-            --burgundy-glow: rgba(139, 21, 24, 0.35);
-            --dark-charcoal: #0f172a;
-            --medium-charcoal: #1e293b;
-            --light-bg: #f8fafc;
-            --white: #FFFFFF;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
+    <style>
+        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
+            background-color: #0f172a;
+            color: #ffffff;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Header / Navbar */
-        header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-svg-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--primary-burgundy);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 10px var(--burgundy-glow);
-        }
-
-        .brand-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: var(--dark-charcoal);
-            letter-spacing: -0.5px;
-            white-space: nowrap;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-burgundy);
-        }
-
-        .btn-contact {
-            background: var(--primary-burgundy);
-            color: var(--white);
-            padding: 0.7rem 1.6rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 14px var(--burgundy-glow);
-        }
-
-        .btn-contact:hover {
-            background: #a3181c;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(139, 21, 24, 0.5);
-            color: var(--white);
-        }
-
-        /* Dynamic Hero Section */
-        .hero {
-            position: relative;
-            color: var(--white);
-            padding: 8rem 2rem 7rem;
-            text-align: center;
-            overflow: hidden;
-            background-color: var(--dark-charcoal);
-        }
-
-        /* Capas de imágenes rotativas */
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        /* Hero Section con Overlay e imagen fija */
+        .hero-section {
+            background-image: 
+                linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.5) 100%), 
+                url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            z-index: 0;
-        }
-
-        .hero-bg.active {
-            opacity: 1;
-        }
-
-        /* Capa superpuesta oscura para dar contraste */
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.60) 0%, rgba(30, 41, 59, 0.55) 50%, rgba(139, 21, 24, 0.60) 100%);
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            background: rgba(139, 21, 24, 0.4);
-            border: 1px solid rgba(225, 29, 72, 0.5);
-            backdrop-filter: blur(8px);
-            color: #fecdd3;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-bottom: 1.8rem;
-        }
-
-        .hero h1 {
-            font-size: 3.4rem;
-            font-weight: 800;
-            margin-bottom: 1.4rem;
-            line-height: 1.15;
-            letter-spacing: -1px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: #e2e8f0;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            max-width: 780px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--white);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(8px);
-            padding: 0.7rem 1.6rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: inline-block;
-            font-size: 0.95rem;
-        }
-
-        .btn-secondary:hover {
-            background: var(--white);
-            color: var(--dark-charcoal);
-            transform: translateY(-2px);
-        }
-
-        /* Trust Bar */
-        .trust-bar {
-            background: var(--white);
-            padding: 2.5rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-        }
-
-        .trust-grid {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .trust-item h3 {
-            font-size: 2.2rem;
-            color: var(--primary-burgundy);
-            font-weight: 800;
-            margin-bottom: 0.2rem;
-        }
-
-        .trust-item p {
-            color: var(--text-muted);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* Sección de Clientes y Laboratorios */
-        .clients-section {
-            background: #ffffff;
-            padding: 5rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .clients-grid {
-            max-width: 1000px;
-            margin: 2.5rem auto 0;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-        }
-
-        .client-card {
-            background: #ffffff;
-            border: 1px solid #e2e8f0;
-            border-radius: 14px;
-            padding: 1.8rem 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
+            background-attachment: fixed; /* Parallax sutil */
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 12px;
-            width: 260px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
         }
 
-        .client-card:hover {
-            border-color: var(--primary-burgundy);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(139, 21, 24, 0.12);
-        }
-
-        .client-card img {
-            max-width: 160px;
-            max-height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            opacity: 0.75;
-            transition: all 0.3s ease;
-        }
-
-        .client-card:hover img {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        .client-card span {
-            font-size: 0.95rem;
+        .hero-title {
+            font-size: 2.8rem;
             font-weight: 700;
-            color: var(--dark-charcoal);
+            margin-bottom: 20px;
+            max-width: 800px;
         }
 
-        /* Services Grid */
-        .section-padding {
-            padding: 6rem 2rem;
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor y Tarjetas Glassmorphism */
+        .servicios-section {
+            padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3.5rem;
+            font-size: 2rem;
+            margin-bottom: 40px;
         }
 
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--dark-charcoal);
-            font-weight: 800;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 4px;
-            background: var(--primary-burgundy);
-            border-radius: 4px;
-        }
-
-        .grid-3 {
+        .servicios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
 
-        .card {
-            background: var(--white);
-            padding: 2.5rem;
+        .card-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            top: 0;
+            padding: 32px;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                        box-shadow 0.3s ease, 
+                        border-color 0.3s ease;
         }
 
-        .card:hover {
-            top: -8px;
-            border-color: rgba(139, 21, 24, 0.3);
-            box-shadow: 0 20px 30px -10px rgba(139, 21, 24, 0.12);
+        .card-glass:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        .card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 1.2rem;
-            display: inline-block;
-        }
-
-        .card h3 {
+        .card-glass h3 {
+            color: #38bdf8;
             font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--dark-charcoal);
-            font-weight: 700;
+            margin-bottom: 12px;
         }
 
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-            line-height: 1.7;
+        .card-glass p {
+            color: #cbd5e1;
+            font-size: 0.95rem;
         }
 
-        .news-date {
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--primary-burgundy);
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-            display: block;
-        }
-
-        /* Quality & Certifications */
-        .certifications {
-            background: var(--dark-charcoal);
-            color: var(--white);
-            padding: 5rem 2rem;
-        }
-
-        .cert-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #ffffff;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 3rem;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
         }
 
-        .cert-text { max-width: 580px; }
-        .cert-text h2 { font-size: 2.2rem; margin-bottom: 1.2rem; font-weight: 800; }
-        .cert-text p { color: #94a3b8; font-size: 1.05rem; line-height: 1.7; }
-
-        .cert-badge-group { display: flex; gap: 1.2rem; flex-wrap: wrap; }
-        .cert-badge {
-            border: 1px solid rgba(255,255,255,0.15);
-            background: rgba(255,255,255,0.03);
-            backdrop-filter: blur(6px);
-            padding: 1.2rem 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-            min-width: 150px;
-        }
-        .cert-badge span { display: block; font-weight: 800; color: #fecdd3; font-size: 1.2rem; }
-
-        /* Modal Contact Form */
-        .modal-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(6px);
-            display: flex; justify-content: center; align-items: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
-            z-index: 2000;
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.08);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            background-color: #20ba5a;
         }
 
-        .modal-overlay.active { opacity: 1; pointer-events: all; }
-
-        .modal-card {
-            background: var(--white);
-            width: 90%; max-width: 520px;
-            border-radius: 20px; padding: 2.8rem;
-            position: relative;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            border-top: 6px solid var(--primary-burgundy);
-        }
-
-        .close-btn {
-            position: absolute; top: 1.2rem; right: 1.5rem;
-            background: transparent; border: none; font-size: 1.6rem; cursor: pointer; color: var(--text-muted);
-        }
-
-        .form-group { margin-bottom: 1.2rem; }
-        .form-group label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--border-color);
-            border-radius: 8px; font-size: 0.95rem; outline: none; background: #f8fafc;
-        }
-
-        .btn-submit {
-            width: 100%; background: var(--primary-burgundy); color: var(--white);
-            padding: 0.9rem; border: none; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer;
-        }
-
-        /* Footer */
-        footer {
-            background: #090d16; color: #94a3b8; padding: 4rem 2rem 2rem; border-top: 1px solid #1e293b;
-        }
-
-        .footer-container {
-            max-width: 1200px; margin: 0 auto; display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;
-        }
-
-        .footer-col h4 { color: var(--white); font-size: 1.1rem; font-weight: 700; margin-bottom: 1.2rem; border-left: 3px solid var(--primary-burgundy); padding-left: 10px; }
-        .footer-col p, .footer-col li { font-size: 0.92rem; line-height: 1.8; }
-        .footer-col ul { list-style: none; }
-        .footer-col a { color: #94a3b8; text-decoration: none; }
-
-        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid #1e293b; text-align: center; font-size: 0.85rem; }
-
-        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
+        /* Responsivo para móviles */
         @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 1rem; text-align: center; }
-            nav ul { flex-direction: column; gap: 0.8rem; }
-            .hero h1 { font-size: 2.2rem; }
-            .client-card { width: 100%; }
-            .brand-title { font-size: 1rem; white-space: normal; }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-section {
+                background-attachment: scroll; /* Mejora rendimiento en celulares */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo-brand">
-                <img src="Imagenes/logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='flex';">
-                <div id="logo-fallback" class="logo-svg-icon" style="display: none;">❄️</div>
-                <span class="brand-title">GIRONTE PHARMA LOGISTICS</span>
-            </a>
-            <nav>
-                <ul>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#clientes">Clientes</a></li>
-                    <li><a href="#calidad">Calidad e IRAM</a></li>
-                    <li><a href="#novedades">Novedades</a></li>
-                </ul>
-            </nav>
-            <button class="btn-contact" onclick="openModal('Contacto General')">Contactar</button>
-        </div>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 class="hero-title">Soluciones Integrales en Comercio Exterior</h1>
+        <p class="hero-subtitle">Conectamos tu empresa con los mercados globales mediante transporte aéreo, marítimo y gestión logística de alta precisión.</p>
     </header>
 
-    <!-- Dynamic Hero Section -->
-    <section class="hero">
-        <div class="hero-bg active" style="background-image: url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <span class="hero-badge">Excelencia Operativa & Cumplimiento GMP</span>
-            <h1>Logística Farmacéutica de Alta Precisión</h1>
-            <p>Especialistas en la gestión integral de la cadena de frío, transporte aéreo y terrestre de productos biológicos con almacenamiento certificado.</p>
-            <div class="hero-btns">
-                <a href="#servicios" class="btn-contact">Nuestros Servicios</a>
-                <button class="btn-secondary" onclick="openModal('Solicitud de Cotización')">Solicitar Cotización</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Franja de Métricas -->
-    <section class="trust-bar fade-in">
-        <div class="trust-grid">
-            <div class="trust-item">
-                <h3>2°C a 8°C</h3>
-                <p>Cadena de Frío Garantizada</p>
-            </div>
-            <div class="trust-item">
-                <h3>100%</h3>
-                <p>Trazabilidad & Monitoreo GPS</p>
-            </div>
-            <div class="trust-item">
-                <h3>ISO 9001</h3>
-                <p>Gestión de Calidad Certificada</p>
-            </div>
-            <div class="trust-item">
-                <h3>OEA</h3>
-                <p>Operador Económico Autorizado</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Clientes y Laboratorios -->
-    <section id="clientes" class="clients-section fade-in">
-        <div class="section-title">
-            <h2>Confían en Nuestra Operación</h2>
-        </div>
-        <div class="clients-grid">
-            <div class="client-card">
-                <img src="Imagenes/bioprofarma-bago.png" alt="Bioprofarma Bagó" onerror="this.style.display='none';">
-                <span>Bioprofarma Bagó</span>
-            </div>
-            <div class="client-card">
-                <img src="Imagenes/montpellier.png" alt="Laboratorios Montpellier" onerror="this.style.display='none';">
-                <span>Laboratorios Montpellier</span>
-            </div>
-            <div class="client-card">
-                <img src="Imagenes/bago.png" alt="Laboratorios Bagó" onerror="this.style.display='none';">
-                <span>Laboratorios Bagó</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section id="servicios" class="section-padding fade-in">
-        <div class="section-title">
-            <h2>Soluciones Logísticas Especializadas</h2>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <div class="card-icon">❄️</div>
-                <h3>Cadena de Frío Garantizada</h3>
-                <p>Control estricto de temperatura en rangos de 2°C a 8°C, 15°C a 25°C y ultracongelación. Monitoreo continuo con trazabilidad técnica en tiempo real.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🏬</div>
-                <h3>Almacenamiento Certificado</h3>
-                <p>Depósitos acondicionados bajo estándares internacionales de Buenas Prácticas de Fabricación (GMP) y Buenas Prácticas de Almacenamiento (GDP).</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">✈️</div>
-                <h3>Transporte Aéreo & Terrestre</h3>
-                <p>Coordinación de envíos críticos nacionales e internacionales con seguimiento continuo de parámetros térmicos durante todo el trayecto.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quality & Certifications -->
-    <section id="calidad" class="certifications fade-in">
-        <div class="cert-container">
-            <div class="cert-text">
-                <h2>Certificaciones IRAM & Operador OEA</h2>
-                <p>Gironte Pharma Logistics opera bajo auditorías continuas del Sistema de Gestión de Calidad certificado por <strong>IRAM - ISO 9001:2015</strong> y acreditación como <strong>Operador Económico Autorizado (OEA)</strong>, garantizando máxima seguridad operacional en el transporte médico.</p>
-            </div>
-            <div class="cert-badge-group">
-                <div class="cert-badge">
-                    <span>IRAM</span>
-                    ISO 9001:2015
-                </div>
-                <div class="cert-badge">
-                    <span>OEA</span>
-                    Seguridad Aduanera
-                </div>
-                <div class="cert-badge">
-                    <span>GDP / GMP</span>
-                    Normativa Pharma
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News / Novedades -->
-    <section id="novedades" class="section-padding fade-in">
-        <div class="section-title">
-            <h2>Últimas Novedades</h2>
-        </div>
-        <div class="grid-3">
-            <div class="card">
-                <span class="news-date">Agosto 2026</span>
-                <h3>Auditoría de Calidad IRAM Directa</h3>
-                <p>Superamos exitosamente la auditoría periódica de mantenimiento de normas ISO, reafirmando nuestro compromiso con la excelencia y la trazabilidad.</p>
-            </div>
-            <div class="card">
-                <span class="news-date">Julio 2026</span>
-                <h3>Ampliación de Flota de Frío</h3>
-                <p>Incorporamos nuevas unidades de transporte de última generación preparadas para traslados ultracongelados con monitoreo instantáneo.</p>
-            </div>
-            <div class="card">
-                <span class="news-date">Junio 2026</span>
-                <h3>Actualización Matriz de Riesgos IT</h3>
-                <p>Reforzamos nuestros protocolos de ciberseguridad y directorios de autenticación para garantizar la continuidad de la operación.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Form -->
-    <div class="modal-overlay" id="contactModal">
-        <div class="modal-card">
-            <button class="close-btn" onclick="closeModal()">&times;</button>
-            <h3 id="modalTitle">Solicitar Cotización</h3>
-            <p>Completá el formulario y nuestro equipo técnico se ponerá en contacto a la brevedad.</p>
+    <!-- Sección de Servicios con Glassmorphism -->
+    <main class="servicios-section">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="servicios-grid">
             
-            <form id="contactForm" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="nombre">Nombre y Apellido</label>
-                    <input type="text" id="nombre" required placeholder="Ej: Juan Pérez">
-                </div>
-                <div class="form-group">
-                    <label for="email">Correo Electrónico</label>
-                    <input type="email" id="email" required placeholder="nombre@empresa.com">
-                </div>
-                <div class="form-group">
-                    <label for="empresa">Empresa / Laboratorio</label>
-                    <input type="text" id="empresa" placeholder="Nombre de la institución">
-                </div>
-                <div class="form-group">
-                    <label for="servicio">Servicio de Interés</label>
-                    <select id="servicio">
-                        <option value="Cadena de Frío / Transporte">Cadena de Frío / Transporte</option>
-                        <option value="Almacenamiento GDP/GMP">Almacenamiento GDP/GMP</option>
-                        <option value="Consultoría e Inspección de Calidad">Consultoría e Inspección de Calidad</option>
-                        <option value="Otro">Otro</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Mensaje o Detalle del Requerimiento</label>
-                    <textarea id="mensaje" rows="3" placeholder="Escriba sus dudas o volúmenes requeridos..."></textarea>
-                </div>
-                <button type="submit" id="btnSubmit" class="btn-submit">Enviar Consulta</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-container">
-            <div class="footer-col">
-                <h4>Gironte Pharma Logistics</h4>
-                <p>Líderes en transporte, distribución y almacenamiento de insumos médicos y productos farmacéuticos.</p>
+            <div class="card-glass">
+                <h3>Transporte Marítimo</h3>
+                <p>Gestión eficiente de carga LCL y FCL hacia y desde los principales puertos del mundo, garantizando seguridad y trazabilidad.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navegación</h4>
-                <ul>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#clientes">Clientes</a></li>
-                    <li><a href="#calidad">Calidad & IRAM</a></li>
-                    <li><a href="#novedades">Novedades</a></li>
-                </ul>
+
+            <div class="card-glass">
+                <h3>Carga Aérea Internacional</h3>
+                <p>Envíos urgentes y soluciones de transporte aéreo prioritario adaptadas a los requerimientos de tu mercadería.</p>
             </div>
-            <div class="footer-col">
-                <h4>Contacto Comercial</h4>
-                <p>Email: contacto@gplog.com.ar</p>
-                <p>Buenos Aires, Argentina</p>
-                
-                <div style="margin-top: 1.2rem; display: flex; align-items: center;">
-                    <a href="https://www.instagram.com/gironte_pharma_logistics" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: #94a3b8; transition: color 0.3s ease; display: inline-block;" onmouseover="this.style.color='#E1306C'" onmouseout="this.style.color='#94a3b8'">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-                </div>
+
+            <div class="card-glass">
+                <h3>Gestión Aduanera</h3>
+                <p>Asesoramiento operativo y legal en procesos de importación y exportación para asegurar un despacho sin contratiempos.</p>
             </div>
+
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Gironte Pharma Logistics. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const bgSlides = document.querySelectorAll('.hero-bg');
-            let currentSlide = 0;
-            const slideInterval = 5000;
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/5491140872343?text=Hola,%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20servicios%20de%20Comercio%20Exterior." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.205 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+    </a>
 
-            function nextSlide() {
-                bgSlides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % bgSlides.length;
-                bgSlides[currentSlide].classList.add('active');
-            }
-
-            setInterval(nextSlide, slideInterval);
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        });
-
-        function openModal(title) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('contactModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('contactModal').classList.remove('active');
-        }
-
-        async function handleSubmit(e) {
-            e.preventDefault();
-            const btn = document.getElementById('btnSubmit');
-            btn.disabled = true;
-            btn.innerText = 'Enviando...';
-
-            const payload = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                empresa: document.getElementById('empresa').value,
-                servicio: document.getElementById('servicio').value,
-                mensaje: document.getElementById('mensaje').value
-            };
-
-            try {
-                const response = await fetch('/api/contacto', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    alert('¡Mensaje enviado con éxito!');
-                    closeModal();
-                    document.getElementById('contactForm').reset();
-                } else {
-                    alert('Error al enviar el formulario.');
-                }
-            } catch (err) {
-                alert('Error al conectar con el servidor.');
-            } finally {
-                btn.disabled = false;
-                btn.innerText = 'Enviar Consulta';
-            }
-        }
-    </script>
 </body>
 </html>
