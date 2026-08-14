@@ -325,7 +325,7 @@
             color: var(--dark-charcoal);
         }
 
-        /* Services Grid con Glassmorphism */
+        /* Services Grid */
         .section-padding {
             padding: 6rem 2rem;
             max-width: 1200px;
@@ -411,7 +411,7 @@
             display: block;
         }
 
-        /* Quality & Certifications Dynamic Layout */
+        /* Quality & Certifications */
         .certifications {
             background: var(--dark-charcoal);
             color: var(--white);
@@ -443,7 +443,6 @@
         }
         .cert-badge span { display: block; font-weight: 800; color: #fecdd3; font-size: 1.1rem; }
 
-        /* Cuadro Oficial IRAM en la Derecha */
         .cert-official-info {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -630,7 +629,7 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <span class="hero-badge">Excelencia Operativa & Gestión de la Calidad</span>
+            <span class="hero-badge">Excelencia Operativa & Cumplimiento GMP</span>
             <h1>Logística Farmacéutica de Alta Precisión</h1>
             <p>Especialistas en la gestión integral de la cadena de frío, transporte aéreo y terrestre de productos biológicos con almacenamiento certificado.</p>
             <div class="hero-btns">
@@ -686,11 +685,11 @@
 
                 <div style="background: linear-gradient(135deg, var(--dark-charcoal) 0%, var(--medium-charcoal) 100%); padding: 2.5rem; border-radius: 16px; color: var(--white); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
                     <div style="border-left: 4px solid var(--primary-burgundy); padding-left: 1.25rem; margin-bottom: 2rem;">
-                        <h4 style="font-size: 2.25rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1;">+23 Años</h4>
+                        <h4 style="font-size: 2.25rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1;">+<span class="counter" data-target="23">0</span> Años</h4>
                         <p style="color: #94a3b8; margin-top: 0.35rem; font-size: 0.95rem;">Liderando el sector de exportación farmacéutica</p>
                     </div>
                     <div style="border-left: 4px solid var(--primary-burgundy); padding-left: 1.25rem; margin-bottom: 2rem;">
-                        <h4 style="font-size: 2.25rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1;">+18 Años</h4>
+                        <h4 style="font-size: 2.25rem; font-weight: 800; color: var(--white); margin: 0; line-height: 1;">+<span class="counter" data-target="18">0</span> Años</h4>
                         <p style="color: #94a3b8; margin-top: 0.35rem; font-size: 0.95rem;">Expertise en gestión de Agente de Carga Internacional</p>
                     </div>
                     <div style="border-left: 4px solid var(--primary-burgundy); padding-left: 1.25rem;">
@@ -750,7 +749,7 @@
         </div>
     </section>
 
-    <!-- Services Grid con Efecto Glassmorphism -->
+    <!-- Services Grid -->
     <section id="servicios" class="section-padding fade-in">
         <div class="section-title">
             <h2>Soluciones Logísticas Especializadas</h2>
@@ -790,7 +789,11 @@
                         <span>OEA</span>
                         Seguridad Aduanera
                     </div>
-                 </div>
+                    <div class="cert-badge">
+                        <span>GDP / GMP</span>
+                        Normativa Pharma
+                    </div>
+                </div>
             </div>
 
             <div class="cert-official-info">
@@ -922,6 +925,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Slider del Hero
             const bgSlides = document.querySelectorAll('.hero-bg');
             let currentSlide = 0;
             const slideInterval = 5000;
@@ -934,6 +938,7 @@
 
             setInterval(nextSlide, slideInterval);
 
+            // Animación Fade-in para secciones
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -943,6 +948,34 @@
             }, { threshold: 0.1 });
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Animación de Contadores Numéricos (+23, +18)
+            const counterObserver = new IntersectionObserver((entries, observerInstance) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 1200; // 1.2 segundos
+                        const stepTime = Math.max(Math.floor(duration / target), 20);
+                        
+                        let current = 0;
+                        const timer = setInterval(() => {
+                            current += 1;
+                            counter.innerText = current;
+                            if (current >= target) {
+                                counter.innerText = target;
+                                clearInterval(timer);
+                            }
+                        }, stepTime);
+
+                        observerInstance.unobserve(counter);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.counter').forEach(counter => {
+                counterObserver.observe(counter);
+            });
         });
 
         // Apertura Segura de WhatsApp Dinámico
