@@ -491,6 +491,92 @@
             color: #94a3b8;
         }
 
+        /* Estilos Módulo de Descargas de Calidad */
+        .downloads-wrapper {
+            max-width: 1200px;
+            margin: 3.5rem auto 0;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .downloads-title {
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .download-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-burgundy);
+            transform: translateY(-3px);
+        }
+
+        .download-icon {
+            font-size: 1.6rem;
+            background: rgba(139, 21, 24, 0.25);
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .download-info {
+            flex-grow: 1;
+        }
+
+        .download-info h4 {
+            color: var(--white);
+            font-size: 0.98rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+        }
+
+        .download-info p {
+            color: #94a3b8;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .btn-download {
+            background: var(--primary-burgundy);
+            color: var(--white);
+            padding: 0.55rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .btn-download:hover {
+            background: #a3181c;
+            transform: scale(1.04);
+        }
+
         /* Modal Contact Form */
         .modal-overlay {
             position: fixed;
@@ -773,7 +859,7 @@
                 <div class="card-icon">✈️</div>
                 <h3>Transporte Marítimo</h3>
                 <p>Brindamos coordinación de operaciones marítimas de importación, incluyendo:
-                    Carga consolidada y carga directa, FCL, LCL, Reefer, Almacenaje y distribución en origen y destino, Confección y emisión de documentos de embarque y                    Coordinación en puerto
+                    Carga consolidada y carga directa, FCL, LCL, Reefer, Almacenaje y distribución en origen y destino, Confección y emisión de documentos de embarque y Coordinación en puerto
                     Seguimiento de las operaciones.
                 </p>
             </div>
@@ -783,8 +869,6 @@
                 <p>Brindamos cobertura para proteger tanto el transporte como la mercancía frente a pérdidas o daños durante el traslado, ya sea nacional o internacional. Contemplamos distintos tipos de carga, incluyendo mercancía general, perecederos, productos químicos, mercancías peligrosas, cargas de alto valor y mercancías frágiles.
                 </p>
             </div>
-
-            
         </div>
     </section>
 
@@ -800,8 +884,10 @@
                         <span>IRAM</span>
                         ISO 9001:2015
                     </div>
-                   
-                    
+                    <div class="cert-badge">
+                        <span>IQNET</span>
+                        AR-QS-17712
+                    </div>
                 </div>
             </div>
 
@@ -813,6 +899,44 @@
                     <p class="iram-validity"><strong>Vigencia:</strong> 29/07/2026 al 29/07/2029</p>
                     <p class="iram-scope"><strong>Alcance:</strong> Coordinación de servicios de transporte internacional de exportación vía aérea para carga general, carga peligrosa y con o sin control de temperatura. Exportación de insumos y repuestos para la industria farmacéutica.</p>
                 </div>
+            </div>
+        </div>
+
+        <!-- Apartado de Descargas Oficiales de Calidad -->
+        <div class="downloads-wrapper">
+            <h3 class="downloads-title">Descarga de Documentación y Certificados</h3>
+            <div class="downloads-grid">
+                
+                <!-- Archivo 1: Política de Calidad -->
+                <div class="download-card">
+                    <div class="download-icon">📄</div>
+                    <div class="download-info">
+                        <h4>Política de Calidad</h4>
+                        <p>PDF — Políticas y compromisos del SGC</p>
+                    </div>
+                    <a href="docs/Politica_de_Calidad_GPL.pdf" download class="btn-download">Descargar ⬇</a>
+                </div>
+
+                <!-- Archivo 2: Certificado IRAM -->
+                <div class="download-card">
+                    <div class="download-icon">🏅</div>
+                    <div class="download-info">
+                        <h4>Certificado IRAM - ISO 9001</h4>
+                        <p>PDF — Certificación oficial IRAM</p>
+                    </div>
+                    <a href="docs/Certificado_IRAM_ISO9001_GPL.pdf" download class="btn-download">Descargar ⬇</a>
+                </div>
+
+                <!-- Archivo 3: Certificado IQNET -->
+                <div class="download-card">
+                    <div class="download-icon">🌐</div>
+                    <div class="download-info">
+                        <h4>Certificado IQNET</h4>
+                        <p>PDF — Acreditación Internacional IQNET</p>
+                    </div>
+                    <a href="docs/Certificado_IQNET_GPL.pdf" download class="btn-download">Descargar ⬇</a>
+                </div>
+
             </div>
         </div>
     </section>
