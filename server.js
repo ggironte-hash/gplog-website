@@ -35,7 +35,7 @@ app.post('/api/contacto', async (req, res) => {
     const { nombre, email, empresa, servicio, mensaje } = req.body;
 
     const mailFrom = process.env.MAIL_FROM || process.env.SMTP_USER;
-    const mailTo = process.env.MAIL_TO || 'ggironte@gplog.com.ar';
+    const mailTo = process.env.MAIL_TO || 'info@gplog.com.ar';
 
     const mailOptions = {
         from: `"Contacto Web - Gironte Pharma" <${mailFrom}>`,
